@@ -15,7 +15,8 @@ public class Chatbox extends javax.swing.JFrame {
 
     private String loggedInUsername;
 
-   
+    
+    
     public Chatbox(String username) {
         initComponents();
         this.loggedInUsername=username;
@@ -230,10 +231,29 @@ public class Chatbox extends javax.swing.JFrame {
                 new Chatbox("Quickchat").setVisible(true);
             }
         });
+        
+        MessageManager manager = new MessageManager();
+        manager.populateTestData();
+
+        System.out.println("\n--- Sent Messages ---");
+        manager.displaySentMessages();
+
+        System.out.println("\n--- Longest Sent Message ---");
+        manager.displayLongestSentMessage();
+
+        System.out.println("\n--- Search by Recipient ---");
+        manager.searchMessagesByRecipient("+27838884567");
+
+        System.out.println("\n--- Full Report ---");
+        manager.displayReport();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnQuickChatMenu;
     private javax.swing.JLabel lblwelcomeUser;
     // End of variables declaration//GEN-END:variables
+
+    
+
 }
+
